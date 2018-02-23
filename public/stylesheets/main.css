@@ -1,0 +1,82 @@
+/* blue: #38618C
+	red: #D34E52
+	light grey: #F6F6F6
+	dark grey: #D8D8D8
+*/
+
+
+/* ========== NAVBAR ========== */
+.navbar {
+	padding: 20px;
+}
+
+.navbar-inverse {
+	background-color: #38618C;
+}
+
+a.navbar-brand {
+	color: #fff;
+	font-size: 1.5rem;
+	margin-left: 2rem;
+}
+
+a.nav-link {
+	color: #fff;
+}
+
+.navbar-nav {
+	flex-direction: row;
+}
+
+.nav-item {
+	margin-right: 2rem;
+}
+
+/* ========== BUTTONS ========== */
+.btn-primary {
+	background-color: #D34E52;
+	border: none;
+}
+
+.btn-primary:hover {
+	background-color: #ad3234;
+}
+
+/* ========== ELEMENTS ========== */
+.img-form {
+	height: 100vh;
+	overflow: hidden;
+}
+
+.img-form .col-md-6 {
+	padding: 0;
+}
+
+.form-wrapper {
+	display: flex;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	padding-top: 40%;
+}
+
+.form {
+	flex: 1 0 auto;
+}
+
+/* ========== JUMBOTRON ========== */
+.intro {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* ========== LANDING PAGE ========== */
+.steps {
+	margin: 5rem auto;
+}
+
+.our-story {
+	background-color: #F6F6F6;
+	padding: 3rem;
+}
