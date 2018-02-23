@@ -1,0 +1,40 @@
+<% include ./partials/header %>
+<% include ./partials/nav %>
+
+<div class="container-fluid">
+	<div class="img-form row">
+		<div class="col-md-6">
+			<img class="img-fluid" src="https://images.unsplash.com/photo-1501622130202-7987a9ff9ec0?ixlib=rb-0.3.5&s=04d90b87fae77afa4f0949ad6d872d6b&auto=format&fit=crop&w=802&q=80" alt="book and glasses">
+		</div>
+		<div class="col-md-6">
+			<div class="form-wrapper">
+				<h3>Add new book to swap</h3>
+				<form action="/books" method="post" class="form">
+					<div class="form-group">
+						<label for="book-title">
+							Title
+						</label>
+						<input autofocus class='form-control' type="text" name="title" id="book-title">
+					</div>
+					<div class="form-group">
+						<label for="book-summary">
+							Summary
+						</label>
+						<input class='form-control' type="text" name="summary" id="book-summary">
+					</div>
+					<div class="form-group">
+						<label for="book-thumbnail">
+							Image
+						</label>
+						<input class='form-control' type="text" name="thumbnail" id="book-thumbnail">
+					</div>
+					<div class="form-group">
+	          <button class="btn btn-large btn-primary btn-block">Create new book</button>
+	        </div>
+				</form>
+			</div><!-- form -->
+		</div>
+	</div><!-- row -->
+</div><!-- container -->
+
+<% include ./partials/footer %>

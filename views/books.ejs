@@ -1,0 +1,18 @@
+<% include ./partials/header %>
+<% include ./partials/nav %>
+
+<div class="container">
+	<h1>All Books Available for Swap</h1>
+	<a href="/books/new">Add new book</a>
+	<div class="row">
+		<% books.forEach(function(book) { %>
+			<div class="col-md-3">
+				<h4><%= book.title %></h4>
+				<img class= "img-fluid" src="<%= book.thumbnail %>" alt="">
+				<p><%= book.summary %></p>
+			</div>
+		<% }) %>
+	</div>
+</div>
+
+<% include ./partials/footer %>

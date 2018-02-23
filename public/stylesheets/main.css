@@ -54,9 +54,10 @@ a.nav-link {
 
 .form-wrapper {
 	display: flex;
+	flex-direction: column;
 	padding-left: 2rem;
 	padding-right: 2rem;
-	padding-top: 40%;
+	padding-top: 20%;
 }
 
 .form {
