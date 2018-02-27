@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+<% include ../partials/nav %>
+
+<div class="container">
+	<header class="hero">
+		<h1>All Books Available for Swap</h1>
+		<a class= "btn btn-primary" href="/books/new">Add new book</a>
+	</header>
+
+	<div class="row">
+		<% books.forEach(function(book) { %>
+			<div class="col-md-3 book-container">
+				<a href="books/<%= book._id %>">
+					<div class="book-thumbnail">
+						<img class= "img-fluid" src="<%= book.thumbnail %>" alt="">
+					</div><!--book-thumbnail-->
+				</a>
+
+				<div class="book-info">
+					<h4 class="book-title">
+						<a href="books/<%= book._id %>"><%= book.title %></a>
+					</h4>
+					<p class="book-author">
+						by <%= book.author.name %>
+					</p>
+					<p class="book-summary">
+						<%= book.summary %>
+						<a href="books/<%= book._id %>">more details</a>
+					</p>
+				</div><!--book-info-->
+			</div><!--book-container-->
+		<% }) %>
+	</div>
+</div>
+
+<% include ../partials/footer %>
