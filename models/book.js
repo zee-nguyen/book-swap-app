@@ -4,16 +4,10 @@ var Schema = mongoose.Schema;
 
 var BookSchema = new Schema({
 	title: String,
-	author: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Author'
-	},
+	author: String,
 	summary: String,
 	isbn: String,
-	genre: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Genre'
-	},
+	genre: String,
 	thumbnail: String,
 	owner: {
 		id: {
