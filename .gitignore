@@ -1,3 +1,5 @@
 populatedb.js
 seeds-sample.js
 seeds.js
+models/author.js
+models/genre.js
