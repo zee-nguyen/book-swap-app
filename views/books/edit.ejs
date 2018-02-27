@@ -1,0 +1,70 @@
+<% include ../partials/header %>
+<% include ../partials/nav %>
+
+<div class="container-fluid">
+	<div class="img-form row">
+		<div class="col-md-6">
+			<img class="img-fluid" src="https://images.unsplash.com/photo-1501622130202-7987a9ff9ec0?ixlib=rb-0.3.5&s=04d90b87fae77afa4f0949ad6d872d6b&auto=format&fit=crop&w=802&q=80" alt="book and glasses">
+		</div>
+		<div class="col-md-6">
+			<div class="form-wrapper">
+				<h3>Update "<%= book.title %>"</h3>
+				<form action="/books/<%= book._id %>?_method=PUT" method="post" class="form">
+					<div class="form-group">
+						<label for="book-title">
+							Title
+						</label>
+						<input autofocus class='form-control' type="text" name="book[title]" id="book-title" value="<%= book.title %>">
+					</div><!--Title-->
+
+					<div class="form-group">
+						<label for="book-author">
+							Author
+						</label>
+						<input class='form-control' type="text" name="book[author]" id="book-author" value="<%= book.author %>">
+					</div><!--Author-->
+
+					<div class="form-group">
+						<label for="book-isbn">
+							ISBN
+						</label>
+						<input class='form-control' type="text" name="book[isbn]" id="book-isbn" value="<%= book.isbn %>">
+					</div><!--ISBN-->
+
+					<div class="form-group">
+						<label for="book-genre">
+							Genre
+						</label>
+						<select class='form-control' name="book[genre]">
+							<option value="fiction" selected>Fiction</option>
+							<option value="non-fiction">Non-Fiction</option>
+							<option value="science">Science</option>
+							<option value="novel">Novel</option>
+							<option value="literature">Literature</option>
+						</select>
+					</div><!--Genre-->
+
+					<div class="form-group">
+						<label for="book-summary">
+							Summary
+						</label>
+						<textarea class='form-control' type="text" name="book[summary]" id="book-summary"><%= book.summary %></textarea>
+					</div><!--Summary-->
+
+					<div class="form-group">
+						<label for="book-thumbnail">
+							Image
+						</label>
+						<input class='form-control' type="text" name="book[thumbnail]" id="book-thumbnail" value="<%= book.thumbnail %>">
+					</div><!--Image-->
+
+					<div class="form-group">
+	          <button class="btn btn-large btn-primary btn-block">Update book info</button>
+	        </div>
+				</form>
+			</div><!-- form -->
+		</div>
+	</div><!-- row -->
+</div><!-- container -->
+
+<% include ../partials/footer %>
