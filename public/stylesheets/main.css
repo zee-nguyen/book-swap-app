@@ -1,48 +1,19 @@
+:root {
+	--base: #FBB631;
+	--accent: #189F98;
+	--accent-dark: #F09025;
+	--light-grey: #F6F6F6;
+}
 /* blue: #38618C
 	red: #D34E52
 	light grey: #F6F6F6
 	dark grey: #D8D8D8
 */
-
-
-/* ========== NAVBAR ========== */
-.navbar {
-	padding: 20px;
+/* ========== COMPONENTS ========== */
+a {
+	color: var(--base);
 }
 
-.navbar-inverse {
-	background-color: #38618C;
-}
-
-a.navbar-brand {
-	color: #fff;
-	font-size: 1.5rem;
-	margin-left: 2rem;
-}
-
-a.nav-link {
-	color: #fff;
-}
-
-.navbar-nav {
-	flex-direction: row;
-}
-
-.nav-item {
-	margin-right: 2rem;
-}
-
-/* ========== BUTTONS ========== */
-.btn-primary {
-	background-color: #D34E52;
-	border: none;
-}
-
-.btn-primary:hover {
-	background-color: #ad3234;
-}
-
-/* ========== ELEMENTS ========== */
 .img-form {
 	height: 100vh;
 	overflow: hidden;
@@ -57,12 +28,56 @@ a.nav-link {
 	flex-direction: column;
 	padding-left: 2rem;
 	padding-right: 2rem;
-	padding-top: 20%;
+	padding-top: 2rem;
 }
 
 .form {
 	flex: 1 0 auto;
 }
+
+.hero {
+	padding-top: 7.594rem;
+	padding-bottom: 7.594rem;
+}
+
+
+/* ========== NAVBAR ========== */
+.navbar {
+	padding: 20px;
+}
+
+.navbar-inverse {
+	background-color: var(--base);
+}
+
+a.navbar-brand {
+	color: #333;
+	font-size: 1.5rem;
+	margin-left: 2rem;
+}
+
+a.nav-link {
+	color: #333;
+}
+
+.navbar-nav {
+	flex-direction: row;
+}
+
+.nav-item {
+	margin-right: 2rem;
+}
+
+/* ========== BUTTONS ========== */
+.btn-primary {
+	background-color: var(--accent);
+	border: none;
+}
+
+.btn-primary:hover {
+	background-color: #ad3234;
+}
+
 
 /* ========== JUMBOTRON ========== */
 .intro {
@@ -80,4 +95,52 @@ a.nav-link {
 .our-story {
 	background-color: #F6F6F6;
 	padding: 3rem;
+}
+
+
+/* ========== BOOK INDEX ========== */
+.book-container {
+	border-right: 1px dotted gray;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	margin-bottom: 1.563rem;
+}
+
+.book-container:nth-child(4n) {
+	border-right: none;
+}
+
+.book-thumbnail {
+	width: 140px;
+	height: 200px;
+	margin-bottom: 2rem;
+}
+
+.book-title {
+	font-size: 18px;
+}
+
+.book-title a {
+	color: var(--accent);
+}
+
+.book-summary {
+	font-size: 14px;
+}
+
+.book-summary a {
+	text-decoration: underline;
+	font-size: 15px;
+	display: block;
+	font-weight: bold;
+}
+
+/* ========== SINGLE BOOK ========== */
+.single-book-wrapper {
+	margin-top: 2.441rem;
+}
+
+.list-group-item.active {
+	background-color: var(--accent);
+	border-color: var(--accent);
 }
