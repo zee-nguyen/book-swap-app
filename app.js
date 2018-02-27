@@ -2,7 +2,8 @@ var express = require('express'),
 		app = express(),
 		mongoose = require('mongoose')
 		bodyParser = require('body-parser'),
-		Book = require('./models/book');
+		Book = require('./models/book'),
+		seedDB = require('./seeds');
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
@@ -16,23 +17,7 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-// ===========================================
-// CREATE SAMPLE DB
-// Book.create({
-// 	title: 'Four',
-// 	thumbnail: 'https://i.pinimg.com/564x/21/12/c3/2112c3ee032788a5968d8a81e2f5724f.jpg',
-// 	summary: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel neque neque. Praesent pellentesque velit vitae dolor ornare, ut lobortis nunc semper. Duis ac dui mi. Suspendisse potenti. Maecenas turpis nulla, fringilla sit amet lobortis a, consequat bibendum diam. Donec sed nisi porttitor, pretium mauris at, gravida nibh.'
-// })
-// .then(function(newBook) {
-// 	console.log("newly created book!");
-// 	console.log(newBook);
-// })
-// .catch(function(err) {
-// 	console.log(err)
-// });
-
-
-// ===========================================
+// seedDB();
 
 //Landing page
 app.get('/', function(req, res) {
@@ -43,8 +28,10 @@ app.get('/', function(req, res) {
 app.get('/books', function(req, res) {
 	//get all books from db
 	Book.find({})
+	.populate("author")
+	.populate("genre")
 	.then(function(allBooks) {
-		res.render('books', {books: allBooks});
+		res.render('books/books', {books: allBooks});
 	})
 	.catch(function(err) {
 		console.log(err);
@@ -53,21 +40,42 @@ app.get('/books', function(req, res) {
 
 //NEW - get form to create new book
 app.get('/books/new', function(req, res) {
-	res.render('new');
+	res.render('books/new');
 })
 
 //CREATE - post new book to db
 app.post('/books', function(req, res) {
 	//get data from form and add to book array
-	var book = { title: req.body.title, summary: req.body.summary, image: req.body.thumbnail };
+	// TODO - fix issue where input needs to convert to id for genre and author
+	var book = req.body.book;
 	Book.create(book)
 	.then(function(newBook) {
+		console.log("new book created!");
 		res.redirect('/books');
 	})
 	.catch(function(err) {
 		console.log(err);
 	});
 });
+
+//SHOW - get detail of each book to show
+app.get('/books/:id', function(req, res) {
+	//look up book by id
+	Book.findById(req.params.id)
+	.populate('comments')
+	.populate('author')
+	.populate('genre')
+	.exec(function(err, foundBook) {
+		if (err) {
+			console.log(err);
+		} else {
+			//render show page
+			res.render("books/show", {book: foundBook});
+		}
+	});
+});
+
+//EDIT - edit book detail
 
 
 app.listen('8888', () => console.log('magic seriously is happening on port 8888'));
