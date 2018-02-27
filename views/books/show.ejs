@@ -10,6 +10,12 @@
 			<h3><%= book.title %></h3>
 			<p><%= book.author %></p>
 			<p><%= book.summary %></p>
+			<div class="btn-group">
+				<a class="btn btn-warning" href="/books/<%=book._id%>/edit">Edit</a>
+				<form class="delete-form" action="/books/<%=book._id%>?_method=DELETE" method="post">
+					<button class="btn btn-danger">Delete</button>
+				</form>
+			</div>
 		</div>
 	</div><!--row-->
 </div><!--container/ single book wrapper-->
