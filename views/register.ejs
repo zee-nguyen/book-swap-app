@@ -1,0 +1,37 @@
+<% include ./partials/header %>
+<% include ./partials/nav %>
+
+<div class="container-fluid">
+	<div class="img-form row">
+		<div class="col-md-6">
+			<img class="img-fluid" src="https://images.unsplash.com/photo-1501622130202-7987a9ff9ec0?ixlib=rb-0.3.5&s=04d90b87fae77afa4f0949ad6d872d6b&auto=format&fit=crop&w=802&q=80" alt="book and glasses">
+		</div>
+		<div class="col-md-6">
+			<div class="user-form-wrapper form-wrapper">
+				<h3 class="text-center">Create an Account</h3>
+				<form action="/register" method="post">
+					<div class="form-group">
+						<label for="username">
+							Username
+							<span class="text-secondary">(only letters, numbers, and underscores)</span>
+						</label>
+						<input class="form-control" type="text" name="username" id="username">
+					</div><!--username-->
+
+					<div class="form-group">
+						<label for="password">
+							Password
+							<span class="text-secondary">(min. 6 characters)</span>
+						</label>
+						<input class="form-control" type="password" name="password" id="password">
+					</div><!--password-->
+
+					<div class="form-group">
+	          <button class="btn btn-large btn-primary btn-block">Sign Up</button>
+	        </div>
+				</form>
+		</div>
+	</div><!-- row -->
+</div><!-- container -->
+
+<% include ./partials/footer %>
