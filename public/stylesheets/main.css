@@ -31,6 +31,10 @@ a {
 	padding-top: 2rem;
 }
 
+.user-form-wrapper {
+	margin-top: 20vh;
+}
+
 .form {
 	flex: 1 0 auto;
 }
@@ -143,4 +147,8 @@ a.nav-link {
 .list-group-item.active {
 	background-color: var(--accent);
 	border-color: var(--accent);
+}
+
+.delete-form {
+	margin-left: 10px;
 }
