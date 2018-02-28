@@ -12,12 +12,33 @@
 			<p><%= book.summary %></p>
 			<div class="btn-group">
 				<a class="btn btn-warning" href="/books/<%=book._id%>/edit">Edit</a>
-				<form class="delete-form" action="/books/<%=book._id%>?_method=DELETE" method="post">
+				<form class="delete-form" action="/books/<%=book._id%>/?_method=DELETE" method="post">
 					<button class="btn btn-danger">Delete</button>
 				</form>
 			</div>
 		</div>
 	</div><!--row-->
+	<hr>
+	<!-- Comment -->
+	<div class="well">
+		<div>
+			<a href="/books/<%=book._id%>/comments/new">Add a comment</a>
+		</div>
+		<% book.comments.forEach(function(comment) { %>
+			<div class="row">
+				<div class="col-md-12">
+					<p class="comment-username"><%= comment.owner.username %></p>
+					<p><%= comment.text %></p>
+					<div class="comment-links btn-group">
+						<a class="btn btn-warning" href="/books/<%=book._id%>/comments/<%=comment._id%>/edit">Edit</a>
+						<form class="delete-form"  action="/books/<%=book._id%>/comments/<%=comment._id%>/?_method=DELETE" method="post">
+							<button class="btn btn-danger">Delete</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		<% }) %>
+	</div>
 </div><!--container/ single book wrapper-->
 
 <% include ../partials/footer %>
