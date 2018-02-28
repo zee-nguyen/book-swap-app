@@ -5,12 +5,26 @@
 			<li class="nav-item">
 				<a class="nav-link" href="/books">All Books</a>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/login">Login</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="/register">Sign Up</a>
-			</li>
+			<% if (!currentUser) { %>
+				<li class="nav-item">
+					<a class="nav-link" href="/login">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/register">Sign Up</a>
+				</li>
+			<% } else { %>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Sign in as <%= currentUser.username %></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/logout">Logout</a>
+				</li>
+			<% } %>
 		</ul>
 	</nav>
 </header>
+
+<!-- Flash Message -->
+<div class="container">
+	
+</div>
