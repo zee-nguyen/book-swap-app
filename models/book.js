@@ -6,7 +6,6 @@ var BookSchema = new Schema({
 	title: String,
 	author: String,
 	summary: String,
-	isbn: String,
 	genre: String,
 	thumbnail: String,
 	owner: {
