@@ -8,7 +8,7 @@ var middlewareObj = {
 			return next();
 		}
 		//if not logged in
-		req.flash("error", "You need to be logged in to do that.")
+		console.log("not logged in");
 		// req.session.redirectTo = req.originalUrl;
 		res.redirect('/login');
 	},
