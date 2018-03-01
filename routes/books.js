@@ -30,8 +30,7 @@ router.post('/', middleware.isLoggedIn, function(req, res) {
 	Book.create(newBook)
 	.then(function(newBook) {
 		console.log('new book created!');
-		console.log(newBook);
-		res.redirect('/books');
+		res.redirect('/books/'+ newBook._id);
 	})
 	.catch(function(err) {
 		console.log(err);
@@ -39,7 +38,7 @@ router.post('/', middleware.isLoggedIn, function(req, res) {
 });
 
 //SHOW - get detail of each book to show
-router.get('/:id', middleware.isLoggedIn, function(req, res) {
+router.get('/:id', function(req, res) {
 	//look up book by id
 	Book.findById(req.params.id)
 	.populate('comments')
