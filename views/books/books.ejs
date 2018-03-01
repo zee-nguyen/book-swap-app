@@ -1,13 +1,17 @@
 <% include ../partials/header %>
 <% include ../partials/nav %>
+<% include ../partials/browse-form %>
 
 <div class="container">
-	<header class="hero">
-		<h1 class="text-center">All Books Available for Swap</h1>
+	<div class="hero">
+		<header>
+		<h2 >All Books Available for Swap</h2>
+		<!-- <h4 class="category-title">Categories: <span></span></h4> -->
 		<% if (currentUser) { %>
 			<a class= "btn btn-primary" href="/books/new">Add new book</a>
 		<% } %>
-	</header>
+		</header>
+	</div>
 
 	<div class="row books-wrapper">
 		<% books.forEach(function(book) { %>
@@ -35,6 +39,10 @@
 			</div><!--book-container-->
 		<% }) %>
 	</div>
+</div><!--container-->
+
+<div class="browse-result">
+
 </div>
 
 <% include ../partials/footer %>
