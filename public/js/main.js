@@ -1,14 +1,53 @@
-(function($) {
-	// jQuery function to set a maximum length or characters for a page element it can handle mutiple elements
-  $.fn.createExcerpts = function(elems,length,more_txt) {
-		$.each($(elems), function() {
-			var item_html = $(this).html(); //
-			item_html = item_html.replace(/]+>/gi, ''); //replace html tags
-			item_html = jQuery.trim(item_html);  //trim whitespace
-			$(this).html(item_html.substring(0,length) + more_txt);  //update the html on page
-		});
-		return this; //allow jQuery chaining
-	}
-})(jQuery);
+$(document).ready(function() {
 
-$().createExcerpts('.book-summary', 200,'...');
+  // Dropdown toggle
+  $('.dropdown-toggle').dropdown();
+
+  //Book excerpt
+  (function($) {
+    // jQuery function to set a maximum length or characters for a page element it can handle mutiple elements
+    $.fn.createExcerpts = function(elems,length,more_txt) {
+      $.each($(elems), function() {
+        var item_html = $(this).html(); //
+        item_html = item_html.replace(/]+>/gi, ''); //replace html tags
+        item_html = jQuery.trim(item_html);  //trim whitespace
+        $(this).html(item_html.substring(0,length) + more_txt);  //update the html on page
+      });
+      return this; //allow jQuery chaining
+    }
+  })(jQuery);
+
+  $().createExcerpts('.book-summary', 200,'...');
+
+  //Browse Result
+  $('.dropdown-item').on('click', function() {
+    var genre = $(this)[0].innerText.toLowerCase();
+    var url = `http://localhost:8888/books/api/browse_category/${genre}`;
+    $.getJSON(url)
+    .then(function(data) {
+      console.log(data);
+      $('.books-wrapper').empty();
+      data.forEach(function(book) {
+        var content = '<div class="col-md-3 book-container">';
+        content += `<a href="books/${book._id}">`;
+        content += `<div class="book-thumbnail"><img class= "img-fluid" src="${book.thumbnail}" alt=""></div></a>`;
+
+        content += `<div class="book-info"> <h4 class="book-title"> <a href="books/${book._id}">${book.title}</a> </h4> <p class="book-author"> by ${book.author} </p> <div class="summary"> <p class="book-summary"> ${book.summary} </p> <a href="books/${book._id}">more details</a> </div> </div></div></div> </div>`;
+
+        $('.books-wrapper').append(content);
+      })
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+  });
+
+  //Search result
+  $('.query-input').on('keypress', function(e) {
+    if (e.which === 13) {
+      var query = $(this).val().toLowerCase();
+      var url = 
+    }
+  })
+
+});
