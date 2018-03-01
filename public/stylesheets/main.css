@@ -1,9 +1,11 @@
 :root {
 	--base: #FBB631;
-	--base-dark: #F09025;
+	--base-dark: #d37b00;
 	--accent: #189F98;
 	--light-grey: #F6F6F6;
 	--body-text: #333;
+	--light-brown: #61594F;
+	--dark-brown: #5A4636;
 }
 /* blue: #38618C
 	red: #D34E52
@@ -11,8 +13,17 @@
 
 */
 /* ========== COMPONENTS ========== */
+html {
+	position: relative;
+	/* min-height: 100vh; */
+}
+
 a {
-	color: var(--base);
+	color: var(--base-dark);
+}
+
+a:active {
+	color: var(--accent);
 }
 
 .img-form {
@@ -41,12 +52,16 @@ a {
 }
 
 .hero {
-	padding-top: 7rem;
-	padding-bottom: 7rem;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
 }
 
 .blockquote {
 	font-style: italic;
+}
+
+.page-wrapper {
+	margin-bottom: 70px;
 }
 
 /* ========== NAVBAR ========== */
@@ -88,6 +103,11 @@ a.nav-link {
 	background-color: var(--accent);
 }
 
+.btn-info {
+	background-color: var(--accent);
+	border-color: var(--accent);
+}
+
 .btn-search {
 	background-color: transparent;
 	border: 1px solid #a8a8a8;
@@ -101,7 +121,48 @@ a.nav-link {
 	border: 1px solid var(--body-text);
 	box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
 }
+
+.btn-link-inline {
+	border: none;
+	font-weight: 500;
+	color: var(--body-text);
+	border-bottom: 1px dotted gray;
+	cursor: pointer;
+}
+
+.btn-link-inline:hover {
+	border-bottom: 1px dotted var(--accent);
+	text-decoration: none;
+	color: var(--accent);
+}
+
+.btn.btn-browse {
+	width: 100%;
+	background-color: var(--dark-brown);
+	color: #fff;
+}
+
+.btn.btn-browse:focus {
+	box-shadow: none;
+}
+
+.btn.btn-query {
+	background-color: var(--dark-brown);
+	color: #fff;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.btn.btn-query:hover {
+	background-color: #8c7563;
+}
+
 /* ========== JUMBOTRON ========== */
+
+.jumbotron {
+	background-color: var(--light-grey);
+}
+
 .intro {
 	display: flex;
 	flex-direction: column;
@@ -156,7 +217,7 @@ a.nav-link {
 
 
 
-/* ========== LANDING PAGE ========== */
+/* ========== FEATURE ========== */
 .feature{
 	padding-top: 3rem;
 	padding-bottom: 2rem;
@@ -169,16 +230,30 @@ a.nav-link {
 
 .steps h4 {
 	font-size: 2rem;
-	color: var(--accent);
+	color: var(--base-dark);
 }
 
 .our-story {
-	background-color: #F6F6F6;
+	background-color: var(--light-grey);
 	padding: 5rem;
 }
 
-.our-story h3 {
-	color: var(--base-dark);
+/* ========== NEWSLETTER ========== */
+.newsletter {
+	padding: 3rem;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.input-group {
+	width: 60%;
+}
+
+input.btn.btn-lg {
+	border-bottom: 1px solid var(--body-text);
 }
 
 /* ========== BOOK INDEX ========== */
@@ -191,6 +266,33 @@ a.nav-link {
 
 .book-container:nth-child(4n) {
 	border-right: none;
+}
+
+.browse-wrapper {
+	background-color: var(--light-brown);
+	padding: 10px;
+}
+
+.browse-wrapper .col-md-6:first-of-type {
+	border-right: 1px dotted #fff;
+}
+
+.dropdown-menu {
+	width: 100%;
+}
+
+.query-form {
+	display: flex;
+	justify-content: space-between;
+}
+
+input.query-input {
+	width: 100%;
+	outline: none;
+	border: none;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+	padding: 7px;
 }
 
 .book-thumbnail {
@@ -215,17 +317,25 @@ a.nav-link {
 	text-decoration: underline;
 	font-size: 15px;
 	display: block;
-	font-weight: bold;
-	color: var(--accent-dark);
+	font-weight: 500;
+}
+
+.hero h2 {
+	margin-bottom: 2rem;
 }
 
 /* ========== SINGLE BOOK ========== */
+.single-book-title {
+	color: var(--base-dark);
+}
+
 .books-wrapper {
 	margin-bottom: 5rem;
 }
 
 .single-book-wrapper {
-	margin-top: 2.441rem;
+	margin-top: 2.5rem;
+	margin-bottom: 2.5rem;
 }
 
 .list-group-item.active {
@@ -237,19 +347,51 @@ a.nav-link {
 	margin-left: 10px;
 }
 
+.comments-wrapper {
+	padding-top: 2rem;
+	margin-bottom: 5rem;
+}
+
 .comment-username {
 	font-weight: bold;
-	color: var(--accent-dark);
+	color: var(--base-dark);
+}
+
+.add-comment {
+	margin-bottom: 2rem;
+	font-weight: 500;
+}
+
+.comment-box {
+	border-bottom: 1px dotted gray;
+	padding-bottom: 2rem;
+	padding-top: 2rem;
+}
+
+.comment-box:last-of-type {
+	border-bottom: none;
 }
 
 /* ========== FOOTER ========== */
-footer {
+.footer {
+	position: absolute;
+	bottom: 0;
 	padding: 1.5rem;
-	background-color: #333;
+	background-color: var(--light-brown);
 	color: #fff;
 	font-size: 14px;
 }
 
-footer .col-md-6 {
+.footer .col-md-6 {
 	text-align: center;
+}
+
+
+
+
+/* ========== MEDIA QUERIES ========== */
+@media screen and (max-width: 768px) {
+	.dropdown {
+		margin-top: 1rem;
+	}
 }
