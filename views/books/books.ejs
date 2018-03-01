@@ -3,11 +3,13 @@
 
 <div class="container">
 	<header class="hero">
-		<h1>All Books Available for Swap</h1>
-		<a class= "btn btn-primary" href="/books/new">Add new book</a>
+		<h1 class="text-center">All Books Available for Swap</h1>
+		<% if (currentUser) { %>
+			<a class= "btn btn-primary" href="/books/new">Add new book</a>
+		<% } %>
 	</header>
 
-	<div class="row">
+	<div class="row books-wrapper">
 		<% books.forEach(function(book) { %>
 			<div class="col-md-3 book-container">
 				<a href="books/<%= book._id %>">
