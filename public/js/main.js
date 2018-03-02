@@ -25,17 +25,24 @@ $(document).ready(function() {
     var url = `http://localhost:8888/books/api/browse_category/${genre}`;
     $.getJSON(url)
     .then(function(data) {
-      console.log(data);
+      console.log(data)
       $('.books-wrapper').empty();
-      data.forEach(function(book) {
-        var content = '<div class="col-md-3 book-container">';
-        content += `<a href="books/${book._id}">`;
-        content += `<div class="book-thumbnail"><img class= "img-fluid" src="${book.thumbnail}" alt=""></div></a>`;
+      if(data.length == 0) {
+        $('.books-wrapper').append('<div class="col-md-12">Sorry. We currently don\'t have any books in this categories</div>');
+      } else {
+        data.forEach(function(book) {
+          if (book.summary.length > 400) {
+            book.summary = book.summary.substring(0, 400) + '...';
+          }
+          var content = '<div class="col-md-3 book-container">';
+          content += `<a href="books/${book._id}">`;
+          content += `<div class="book-thumbnail"><img class= "img-fluid" src="${book.thumbnail}" alt=""></div></a>`;
 
-        content += `<div class="book-info"> <h4 class="book-title"> <a href="books/${book._id}">${book.title}</a> </h4> <p class="book-author"> by ${book.author} </p> <div class="summary"> <p class="book-summary"> ${book.summary} </p> <a href="books/${book._id}">more details</a> </div> </div></div></div> </div>`;
+          content += `<div class="book-info"> <h4 class="book-title"> <a href="books/${book._id}">${book.title}</a> </h4> <p class="book-author"> by ${book.author} </p> <div class="summary"> <p class="book-summary"> ${book.summary} </p> <a href="books/${book._id}">more details</a> </div> </div></div></div> </div>`;
 
-        $('.books-wrapper').append(content);
-      })
+          $('.books-wrapper').append(content);
+        });
+      }
     })
     .catch(function(err) {
       console.log(err);
@@ -43,11 +50,11 @@ $(document).ready(function() {
   });
 
   //Search result
-  $('.query-input').on('keypress', function(e) {
-    if (e.which === 13) {
-      var query = $(this).val().toLowerCase();
-      var url = 
-    }
-  })
+  // $('.query-input').on('keypress', function(e) {
+  //   if (e.which === 13) {
+  //     var query = $(this).val().toLowerCase();
+  //     var url =
+  //   }
+  // })
 
 });
