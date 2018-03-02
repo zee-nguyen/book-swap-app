@@ -1,13 +1,9 @@
 <% include ./partials/header %>
-<% include ./partials/nav %>
 
-<div class="container-fluid">
-	<div class="img-form row">
-		<div class="col-md-6">
-			<img class="img-fluid" src="https://images.unsplash.com/photo-1501622130202-7987a9ff9ec0?ixlib=rb-0.3.5&s=04d90b87fae77afa4f0949ad6d872d6b&auto=format&fit=crop&w=802&q=80" alt="book and glasses">
-		</div>
-		<div class="col-md-6">
-			<div class="user-form-wrapper form-wrapper">
+<div class="container user-form-wrapper">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form">
 				<h3 class="text-center">Create an Account</h3>
 				<form action="/register" method="post">
 					<div class="form-group">
@@ -34,4 +30,9 @@
 	</div><!-- row -->
 </div><!-- container -->
 
-<% include ./partials/footer %>
+
+		<!-- Custom JS -->
+		<script type="text/javascript" src="/js/main.js">
+		</script>
+	</body>
+</html>
