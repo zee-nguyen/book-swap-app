@@ -15,7 +15,7 @@
 /* ========== COMPONENTS ========== */
 html {
 	position: relative;
-	/* min-height: 100vh; */
+	min-height: 100vh;
 }
 
 a {
@@ -35,16 +35,14 @@ a:active {
 	padding: 0;
 }
 
-.form-wrapper {
+.user-form-wrapper {
+	width: 50%;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	padding-left: 2rem;
 	padding-right: 2rem;
-	padding-top: 2rem;
-}
-
-.user-form-wrapper {
-	margin-top: 20vh;
+	padding-top: 15%;
 }
 
 .form {
