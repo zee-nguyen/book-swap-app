@@ -1,12 +1,18 @@
 <% include ./partials/header %>
 
-<div class="container user-form-wrapper">
+<div class="container form-wrapper user-form-wrapper">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form">
 				<h3 class="text-center">Create an Account</h3>
 				<form action="/register" method="post">
 					<div class="form-group">
+						<label for="fullname">
+							Full Name
+						</label>
+						<input class="form-control" type="text" name="fullname" id="fullname">
+					</div><!--fullname-->
+
 						<label for="username">
 							Username
 							<span class="text-secondary">(only letters, numbers, and underscores)</span>
