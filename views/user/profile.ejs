@@ -1,0 +1,64 @@
+<% include ../partials/header %>
+<% include ../partials/nav %>
+
+<div class="container profile-wrapper">
+	<div class="row profile-card">
+		<div class="col-md-3">
+			<div class="avatar">
+				<img src="<%= currentUser.avatar %>" alt="">
+			</div>
+		</div>
+		<div class="col-md-8 profile-desc">
+			<div class="user-info">
+				<h3 class="user-username"><%= currentUser.fullname %></h3>
+				<div>
+					<button class="btn btn-secondary">Edit profile</button>
+				</div>
+			</div>
+
+			<p class="lead"><%= currentUser.desc %></p>
+		</div>
+	</div><!--profile-card-->
+
+	<div class="row user-books">
+		<div class="user-books-info">
+			<a href="#">
+				<span class="swap-total"><%=books.length%></span>
+				Swaps
+			</a>
+			<a href="#">
+				<span class="favorite-total">0</span>
+				Favorites
+			</a>
+		</div><!--user-books-info-->
+
+		<div class="row books-wrapper">
+			<% books.forEach(function(book) { %>
+				<div class="col-md-3 book-container">
+					<a href="/books/<%= book._id %>">
+						<div class="book-thumbnail">
+							<img class= "img-fluid" src="<%= book.thumbnail %>" alt="">
+						</div><!--book-thumbnail-->
+					</a>
+
+					<div class="book-info">
+						<h4 class="book-title">
+							<a href="/books/<%= book._id %>"><%= book.title %></a>
+						</h4>
+						<p class="book-author">
+							by <%= book.author %>
+						</p>
+						<div class="summary">
+							<p class="book-summary">
+								<%= book.summary %>
+							</p>
+							<a href="/books/<%= book._id %>">more details</a>
+						</div>
+					</div><!--book-info-->
+				</div><!--book-container-->
+			<% }) %>
+		</div>
+	</div><!--user-books-->
+</div>
+
+<% include ../partials/footer %>
