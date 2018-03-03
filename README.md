@@ -2,7 +2,7 @@
 BookSwap is a book trading app for avid book lovers looking to trade their old books for something new.
 
 ### Wireframes
-[https://c1.staticflickr.com/5/4757/40551916502_af63ebc45a_b.jpg]
+https://c1.staticflickr.com/5/4757/40551916502_af63ebc45a_b.jpg
 
 ### User Stories
 
