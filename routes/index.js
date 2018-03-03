@@ -1,7 +1,9 @@
 const express 		= require("express"),
 			router 			= express.Router(),
 			User 				= require("../models/user"),
-			passport    = require("passport");
+			Book 				= require("../models/book"),
+			passport    = require("passport"),
+			middleware	= require("../middleware");
 
 //Landing page
 router.get('/', function(req, res) {
@@ -16,7 +18,7 @@ router.get('/register', function(req, res) {
 
 //Handle user sign up
 router.post('/register', function(req, res) {
-	var newUser = new User({username: req.body.username});
+	var newUser = new User({username: req.body.username, fullname: req.body.fullname, avatar: "https://c1.staticflickr.com/5/4743/38784575450_a095a729a8.jpg", desc: "Just a bookworm in this vast universe."});
 	User.register(newUser, req.body.password, function(err, user) {
 		if (err) {
 			console.log(err);
@@ -53,6 +55,20 @@ router.post('/login', function(req, res, next) {
 router.get('/logout', function(req, res) {
 	req.logout();
 	res.redirect('/');
+});
+
+/*=========USER PROFILE ROUTE============*/
+//Display user profile
+router.get('/user/:username', middleware.isLoggedIn, function(req, res) {
+	User.find({username: req.params.username})
+	.then(function(user) {
+		Book.find({'owner.username': user[0].username}, function(err, books) {
+			res.render('user/profile', {books: books});
+		});
+	})
+	.catch(function(err) {
+		console.log(err);
+	})
 });
 
 module.exports = router;
