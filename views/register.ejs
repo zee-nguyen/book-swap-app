@@ -1,5 +1,21 @@
 <% include ./partials/header %>
 
+<div class="container validation-message">
+	<% if (success) { %>
+		<div class="alert alert-success" role="alert">
+			Successful
+		</div>
+		<% } %>
+			<% if (errors) { %>
+				<div class="alert alert-danger" role="alert">
+					<% errors.forEach(error => { %>
+						<li><%= error.msg %></li>
+					<% }) %>
+				</div>
+				<% } %>
+</div>
+
+
 <div class="container form-wrapper user-form-wrapper">
 	<div class="row">
 		<div class="col-md-12">
@@ -15,7 +31,7 @@
 
 						<label for="username">
 							Username
-							<span class="text-secondary">(only letters, numbers, and underscores)</span>
+							<span class="text-secondary">(only letters and numbers)</span>
 						</label>
 						<input class="form-control" type="text" name="username" id="username">
 					</div><!--username-->
