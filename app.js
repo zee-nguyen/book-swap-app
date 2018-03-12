@@ -1,17 +1,21 @@
-const express = require("express"),
-		app = express(),
-		mongoose = require("mongoose"),
-		passport = require("passport"),
-		LocalStrategy = require("passport-local"),
-		passportLocalMongoose = require("passport-local-mongoose"),
-		session = require("express-session"),
-		bodyParser = require("body-parser"),
-		methodOverride = require("method-override"),
-		favicon = require("serve-favicon"),
-		Book = require("./models/book"),
-		User = require("./models/user"),
-		Comment = require("./models/comment"),
-		seedDB = require("./seeds");
+const express 													= require("express"),
+		app 																= express(),
+		mongoose 														= require("mongoose"),
+		passport 														= require("passport"),
+		LocalStrategy 											= require("passport-local"),
+		passportLocalMongoose 							= require("passport-local-mongoose"),
+		session 														= require("express-session"),
+		bodyParser 													= require("body-parser"),
+		cookieParser 												= require("cookie-parser"),
+		methodOverride 											= require("method-override"),
+		favicon 														= require("serve-favicon"),
+		flash 															= require("connect-flash"),
+		validator 													= require("express-validator"),
+		Book 																= require("./models/book"),
+		User 																= require("./models/user"),
+		Comment 														= require("./models/comment"),
+		seedDB 															= require("./seeds");
+
 
 //Require routes
 const indexRoutes 	= require("./routes/index"),
@@ -33,14 +37,17 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.use(favicon(__dirname + "/public/images/favicon.png"));
+app.use(validator());
 
 // seedDB();
+app.use(cookieParser('secret'));
 
 // Passport configuration
 app.use(session({
     secret: "It's snowing today",
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false,
+		cookie: { maxAge: 60000 }
 }));
 
 // Passport Config
@@ -51,9 +58,14 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
+app.use(flash());
+
 //custom middleware
 app.use(function(req, res, next) {
 	res.locals.currentUser = req.user;
+	res.locals.success = req.flash("success");
+	res.locals.error = req.flash("error");
 	next();
 });
 
