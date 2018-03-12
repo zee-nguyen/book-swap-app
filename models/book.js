@@ -30,4 +30,6 @@ BookSchema
 	return '/books/' + this._id;
 });
 
+BookSchema.index({title: 'text', author: 'text', genre: 'text'});
+
 module.exports = mongoose.model('Book', BookSchema);
