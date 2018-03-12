@@ -8,23 +8,24 @@ var middlewareObj = {
 			return next();
 		}
 		//if not logged in
-		console.log("not logged in");
-		// req.session.redirectTo = req.originalUrl;
+		req.flash("error", "You need to be logged in to do that.");
+		req.session.redirectTo = req.originalUrl;
 		res.redirect('/login');
 	},
 	checkBookOwnership: function (req, res, next) {
 		//is user logged in?
 		if(req.isAuthenticated()) {
 			//does the book belong to the user?
-			Book.findById(req.params.id, function(err, foundBook) {
+			Book.findById(req.params.id, (err, foundBook) => {
 				if (err) {
-					console.log(err);
+					req.flash("error", "Oops! Something goes wrong. Please try again in a few minutes.");
+					// console.log(err);
 					res.redirect('back');
 				} else {
 					if (foundBook.owner.id.equals(req.user._id)) {
 						next();
 					} else {
-						console.log("no permission to edit book");
+						req.flash("error", "You don't have permission to do that.");
 						res.redirect('back');
 					}
 				}
@@ -34,15 +35,16 @@ var middlewareObj = {
 	checkCommentOwnership: function (req, res, next) {
 			//is user logged in
 			if(req.isAuthenticated()) {
-				Comment.findById(req.params.comment_id, function(err, foundComment) {
+				Comment.findById(req.params.comment_id, (err, foundComment) => {
 					if (err) {
-						console.log(err);
+						req.flash("error", "Oops! Something goes wrong. Please try again in a few minutes.");
+						// console.log(err);
 						res.redirect('back');
 					} else {
 						if (foundComment.owner.id.equals(req.user._id)) {
 							next();
 						} else {
-							console.log('no permission to edit comment');
+							req.flash("error", "You don't have permission to do that.");
 							res.redirect('back');
 						}
 					}
