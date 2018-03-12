@@ -2,10 +2,10 @@
 	<!-- Browse -->
 	<div class="row browse-wrapper">
 		<div class="search-form-div col-md-6">
-			<form class="query-form" action="#">
-				<input class="query-input" type="text" name="book-query" placeholder="Book title, author, ...">
-				<!-- <button class="btn btn-query" type="submit" name="button">Search</button>
-			</form> -->
+			<form class="query-form" action="/books/api/search" method="post">
+				<input class="query-input" type="text" name="query" placeholder="Book title, author, ...">
+				<button class="btn btn-query" type="submit" name="button">Search</button>
+			</form>
 		</div>
 		<!-- Browse -->
 		<div class="browse-form-div col-md-6">
