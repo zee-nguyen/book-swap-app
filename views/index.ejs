@@ -1,11 +1,12 @@
 <% include ./partials/header %>
 <% include ./partials/nav %>
+<% include ./partials/flash-message %>
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container intro">
 			<h1 class="display-3">Find the book you want</h1>
 			<p class="lead">Browse hundreds of books available for swap</p>
 			<div class="search">
-				<form class="search-form" action="index.html" method="post">
+				<form class="search-form" action="/books/search" method="post">
 
 					<div class="search-input-wrapper">
 						<label for="search-input">
@@ -13,7 +14,7 @@
 							<span class="sr-only">Search</span>
 						</label>
 
-						<input type="text" placeholder="Book title, author,..." id="search-input">
+						<input name="query" type="text" placeholder="Book title, author,..." id="search-input">
 					</div>
 
 					<div class="search-button-wrapper">
@@ -38,7 +39,7 @@
 					<h4>
 						<i class="fas fa-plus"></i>
 					</h4>
-					<p class="lead">Create an account and post the books you want to give away</p>
+					<p class="lead">Create an account and post the books you want to give away.</p>
 				</div>
 			</div>
 			<div class="col-md-3">
@@ -46,7 +47,7 @@
 					<h4>
 						<i class="fas fa-book"></i>
 					</h4>
-					<p class="lead">Receive requests from others for your books</p>
+					<p class="lead">Receive requests from others for your books.</p>
 				</div>
 			</div>
 			<div class="col-md-3">
@@ -54,7 +55,7 @@
 					<h4>
 						<i class="far fa-envelope-open"></i>
 					</h4>
-					<p class="lead">Mail your books and receive swap credits</p>
+					<p class="lead">Paid for postage and mail your books.</p>
 				</div>
 			</div>
 			<div class="col-md-3">
@@ -62,7 +63,7 @@
 					<h4>
 						<i class="fab fa-angellist"></i>
 					</h4>
-					<p class="lead">Ask for books from others with your swap credits</p>
+					<p class="lead">Request for books from others and receive them postage-paid.</p>
 				</div>
 			</div>
 		</div>
