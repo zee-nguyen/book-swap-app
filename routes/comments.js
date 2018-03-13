@@ -5,13 +5,13 @@ const express 		= require("express"),
 			middleware	= require("../middleware");
 
 //GET - comment form
-router.get('/new', middleware.isLoggedIn, function(req, res) {
+router.get('/new', middleware.isLoggedIn, (req, res) => {
 	//find book by id
 	Book.findById(req.params.id)
-		.then(function(foundBook) {
+		.then((foundBook) => {
 			res.render('comments/new', {book: foundBook});
 		})
-		.catch(function(err) {
+		.catch((err) => {
 			if(err) {
 				console.log(err);
 				res.redirect("/books");
@@ -20,11 +20,11 @@ router.get('/new', middleware.isLoggedIn, function(req, res) {
 });
 
 //CREATE - new comment
-router.post('/', middleware.isLoggedIn, function(req, res) {
+router.post('/', middleware.isLoggedIn, (req, res) => {
 	Book.findById(req.params.id)
-		.then(function(book) {
+		.then((book) => {
 			Comment.create(req.body.comment)
-				.then(function(comment) {
+				.then((comment) => {
 					//associate comment with username and id
 					comment.owner.id = req.user._id;
 					comment.owner.username = req.user.username;
@@ -35,14 +35,14 @@ router.post('/', middleware.isLoggedIn, function(req, res) {
 					book.save();
 					res.redirect('/books/' + book._id)
 				})
-				.catch(function(err) {
+				.catch((err) => {
 					if(err) {
 						console.log(err);
 						res.redirect('/books');
 					}
 				})
 		})
-		.catch(function(err) {
+		.catch((err) => {
 			if(err) {
 				console.log(err);
 				res.redirect('/books');
@@ -51,38 +51,39 @@ router.post('/', middleware.isLoggedIn, function(req, res) {
 });
 
 //EDIT comment
-router.get('/:comment_id/edit', middleware.checkCommentOwnership, function(req, res) {
+router.get('/:comment_id/edit', middleware.checkCommentOwnership, (req, res) => {
 	Comment.findById(req.params.comment_id)
-		.then(function(comment) {
+		.then((comment) => {
 			res.render('comments/edit', {book_id: req.params.id, comment: comment});
 		})
-		.catch(function(err) {
+		.catch((err) => {
 			console.log(err);
 			res.redirect('back');
 		});
 });
 
 //UPDATE comment
-router.put('/:comment_id', middleware.checkCommentOwnership, function(req, res) {
+router.put('/:comment_id', middleware.checkCommentOwnership, (req, res) => {
 	//find comment and update
 	Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment)
-		.then(function(updatedComment) {
+		.then((updatedComment) => {
 			res.redirect('/books/' + req.params.id)
 		})
-		.catch(function(err) {
+		.catch((err) => {
 			console.log(err);
 			res.redirect('back');
 		});
 });
 
 //DELETE COMMENT
-router.delete('/:comment_id', middleware.checkCommentOwnership, function(req, res) {
+router.delete('/:comment_id', middleware.checkCommentOwnership, (req, res) => {
 	//find comment by ID and delete
 	Comment.findByIdAndRemove(req.params.comment_id)
-		.then(function(comment) {
+		.then((comment) => {
+			req.flash('success', 'Comment deleted.');
 			res.redirect('/books/' + req.params.id);
 		})
-		.catch(function(err) {
+		.catch((err) => {
 			console.log(err);
 			res.redirect('back');
 		})

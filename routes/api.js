@@ -3,28 +3,44 @@ const express 		= require("express"),
 			Book 				= require("../models/book"),
 			Comment 		= require("../models/comment");
 
-router.get("/", function(req, res) {
+//prefix "/books/api"
+
+router.get("/", (req, res) => {
 	Book.find()
-	.then(function(books) {
+	.then((books) => {
 		res.json(books);
 	})
-	.catch(function(err) {
+	.catch((err) => {
 		res.send(err);
 	})
 });
 
-router.get("/browse_category/:genre", function(req, res) {
+router.get("/browse_category/:genre", (req, res) => {
 	Book.find({ genre: req.params.genre})
-	.then(function(books) {
+	.then((books) => {
 		res.json(books);
 	})
-	.catch(function(err) {
+	.catch((err) => {
 		res.send(err);
 	});
 });
 
-router.get("/:query", function(req, res) {
-	
+/*========= SEARCH ============*/
+//search on index page
+router.post('/search', (req, res) => {
+	var query = req.body.query;
+	Book.find({
+		$text: {
+			$search: query,
+		}
 })
+	.then((books) => {
+		console.log(books);
+		res.json(books);
+	})
+	.catch((err) => {
+		console.log(err);
+	})
+});
 
 module.exports = router;

@@ -49,12 +49,19 @@ $(document).ready(function() {
     })
   });
 
-  //Search result
-  // $('.query-input').on('keypress', function(e) {
-  //   if (e.which === 13) {
+
+  // Search result
+  // $('.btn-query').on('click', function(e) {
   //     var query = $(this).val().toLowerCase();
-  //     var url =
-  //   }
-  // })
+  //     console.log(query);
+      // var url = `http://localhost:8888/books/api/search/${query}`;
+      // $.getJSON(url)
+      //   .then(function(data) {
+      //     console.log(data);
+      //   })
+      //   .catch(function(err) {
+      //     console.log(err);
+      //   })
+  // });
 
 });

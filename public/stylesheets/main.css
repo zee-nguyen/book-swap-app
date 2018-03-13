@@ -66,6 +66,10 @@ a:active {
 	margin-bottom: 70px;
 }
 
+.validation-message {
+	margin-top: 3rem;
+}
+
 /* ========== NAVBAR ========== */
 .navbar {
 	padding: 10px;
@@ -93,6 +97,11 @@ a.nav-link {
 
 .nav-item {
 	margin-right: 2rem;
+}
+
+div.container-fluid.flash-message {
+	padding-left: 0;
+	padding-right: 0;
 }
 
 /* ========== BUTTONS ========== */
@@ -244,6 +253,7 @@ a.nav-link {
 
 .steps h4 {
 	font-size: 2rem;
+	margin-bottom: 1rem;
 	color: var(--base-dark);
 }
 
@@ -308,6 +318,10 @@ input.query-input {
 
 .book-summary {
 	font-size: 14px;
+}
+
+.book-author span {
+	font-style: italic;
 }
 
 .summary a {
