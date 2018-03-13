@@ -46,8 +46,7 @@ app.use(cookieParser('secret'));
 app.use(session({
     secret: "It's snowing today",
     resave: false,
-    saveUninitialized: false,
-		cookie: { maxAge: 60000 }
+    saveUninitialized: false
 }));
 
 // Passport Config
