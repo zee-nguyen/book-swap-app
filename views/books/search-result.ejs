@@ -1,0 +1,51 @@
+<% include ../partials/header %>
+<% include ../partials/nav %>
+<% include ../partials/browse-form %>
+<% include ../partials/flash-message %>
+
+  <div class="container">
+    <div class="hero">
+      <header>
+        <h2>Search results for: "
+          <%= keyword %>"</h2>
+      </header>
+    </div>
+
+    <div class="row books-wrapper">
+      <% books.forEach(function(book) { %>
+        <div class="col-md-3 book-container">
+          <a href="/books/<%= book._id %>">
+            <div class="book-thumbnail">
+              <img class="img-fluid" src="<%= book.thumbnail %>" alt="">
+            </div>
+            <!--book-thumbnail-->
+          </a>
+
+          <div class="book-info">
+            <h4 class="book-title">
+              <a href="/books/<%= book._id %>">
+                <%= book.title %>
+              </a>
+            </h4>
+            <p class="book-author">
+              by
+              <span>
+                <%= book.author %>
+              </span>
+            </p>
+            <div class="summary">
+              <p class="book-summary">
+                <%= book.summary %>
+              </p>
+              <a href="/books/<%= book._id %>">more details</a>
+            </div>
+          </div>
+          <!--book-info-->
+        </div>
+        <!--book-container-->
+        <% }) %>
+    </div>
+  </div>
+  <!--container-->
+
+  <% include ../partials/footer %>
