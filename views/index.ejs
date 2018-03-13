@@ -1,11 +1,12 @@
 <% include ./partials/header %>
 <% include ./partials/nav %>
+<% include ./partials/flash-message %>
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container intro">
 			<h1 class="display-3">Find the book you want</h1>
 			<p class="lead">Browse hundreds of books available for swap</p>
 			<div class="search">
-				<form class="search-form" action="index.html" method="post">
+				<form class="search-form" action="/books/search" method="post">
 
 					<div class="search-input-wrapper">
 						<label for="search-input">
@@ -13,14 +14,15 @@
 							<span class="sr-only">Search</span>
 						</label>
 
-						<input type="text" placeholder="Book title, author,..." id="search-input">
+						<input name="query" type="text" placeholder="Book title, author,..." id="search-input">
 					</div>
 
 					<div class="search-button-wrapper">
 						<button class="btn-search" type="submit">Search</button>
 					</div>
 				</form>
-			</div><!--search-->
+			</div>
+			<!--search-->
 			<form class="form-inline my-2 my-lg-0">
 
 
@@ -38,7 +40,7 @@
 					<h4>
 						<i class="fas fa-plus"></i>
 					</h4>
-					<p class="lead">Create an account and post the books you want to give away</p>
+					<p class="lead">Create an account and post the books you want to give away.</p>
 				</div>
 			</div>
 			<div class="col-md-3">
@@ -46,7 +48,7 @@
 					<h4>
 						<i class="fas fa-book"></i>
 					</h4>
-					<p class="lead">Receive requests from others for your books</p>
+					<p class="lead">Receive requests from others for your books.</p>
 				</div>
 			</div>
 			<div class="col-md-3">
@@ -54,7 +56,7 @@
 					<h4>
 						<i class="far fa-envelope-open"></i>
 					</h4>
-					<p class="lead">Mail your books and receive swap credits</p>
+					<p class="lead">Paid for postage and mail your books.</p>
 				</div>
 			</div>
 			<div class="col-md-3">
@@ -62,27 +64,32 @@
 					<h4>
 						<i class="fab fa-angellist"></i>
 					</h4>
-					<p class="lead">Ask for books from others with your swap credits</p>
+					<p class="lead">Request for books from others and receive them postage-paid.</p>
 				</div>
 			</div>
 		</div>
-	</div><!-- Steps Container -->
+	</div>
+	<!-- Steps Container -->
 
 	<div class="container-fluid our-story">
 		<div class="row">
 			<div class="col-md-6">
 				<h3>Our Story</h3>
 				<hr>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam cursus sed velit ac ullamcorper. Donec ullamcorper consectetur sem eget imperdiet. Praesent purus metus, cursus ac tempor a, consequat ut lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam cursus sed velit ac ullamcorper. Donec ullamcorper consectetur sem eget imperdiet. Praesent purus metus, cursus ac tempor a, consequat ut lorem.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam cursus sed velit ac ullamcorper. Donec ullamcorper consectetur
+					sem eget imperdiet. Praesent purus metus, cursus ac tempor a, consequat ut lorem. Lorem ipsum dolor sit amet, consectetur
+					adipiscing elit. Etiam cursus sed velit ac ullamcorper. Donec ullamcorper consectetur sem eget imperdiet. Praesent
+					purus metus, cursus ac tempor a, consequat ut lorem.</p>
 				<p>We hope you enjoy your experience with BookSwap. Here's a quote from Dr. Seuss to welcome you to the family.</p>
 				<blockquote class="blockquote">
 					<p>“The more that you read, the more things you will know. The more that you learn, the more places you'll go.”</p>
 				</blockquote>
 			</div>
 			<div class="col-md-6">
-				<img class="img-fluid"  src="https://images.unsplash.com/photo-1506377872008-6645d9d29ef7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7ecbc480a596afc12a416f1269b92f88&auto=format&fit=crop&w=1650&q=80" alt="bookstore">
+				<img class="img-fluid" src="https://images.unsplash.com/photo-1506377872008-6645d9d29ef7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7ecbc480a596afc12a416f1269b92f88&auto=format&fit=crop&w=1650&q=80"
+					alt="bookstore">
 			</div>
 		</div>
 	</div>
 
-<% include ./partials/footer %>
+	<% include ./partials/footer %>
