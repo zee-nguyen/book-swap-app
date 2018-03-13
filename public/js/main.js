@@ -17,7 +17,7 @@ $(document).ready(function() {
     }
   })(jQuery);
 
-  $().createExcerpts('.book-summary', 200,'...');
+  $().createExcerpts('.book-summary', 180,'...');
 
   //Browse Result
   $('.dropdown-item').on('click', function() {
@@ -25,24 +25,8 @@ $(document).ready(function() {
     var url = `http://localhost:8888/books/api/browse_category/${genre}`;
     $.getJSON(url)
     .then(function(data) {
-      console.log(data)
-      $('.books-wrapper').empty();
-      if(data.length == 0) {
-        $('.books-wrapper').append('<div class="col-md-12">Sorry. We currently don\'t have any books in this categories</div>');
-      } else {
-        data.forEach(function(book) {
-          if (book.summary.length > 400) {
-            book.summary = book.summary.substring(0, 400) + '...';
-          }
-          var content = '<div class="col-md-3 book-container">';
-          content += `<a href="books/${book._id}">`;
-          content += `<div class="book-thumbnail"><img class= "img-fluid" src="${book.thumbnail}" alt=""></div></a>`;
-
-          content += `<div class="book-info"> <h4 class="book-title"> <a href="books/${book._id}">${book.title}</a> </h4> <p class="book-author"> by ${book.author} </p> <div class="summary"> <p class="book-summary"> ${book.summary} </p> <a href="books/${book._id}">more details</a> </div> </div></div></div> </div>`;
-
-          $('.books-wrapper').append(content);
-        });
-      }
+      // console.log(data)
+      displaySearchResult(data);
     })
     .catch(function(err) {
       console.log(err);
@@ -50,18 +34,35 @@ $(document).ready(function() {
   });
 
 
-  // Search result
-  // $('.btn-query').on('click', function(e) {
-  //     var query = $(this).val().toLowerCase();
-  //     console.log(query);
-      // var url = `http://localhost:8888/books/api/search/${query}`;
-      // $.getJSON(url)
-      //   .then(function(data) {
-      //     console.log(data);
-      //   })
-      //   .catch(function(err) {
-      //     console.log(err);
-      //   })
-  // });
+  //Book index search form
+  $(".btn-search-query").click(function(e) {
+    e.preventDefault();
+    var query = $("#search-query").val().toLowerCase();
+    var param = { search: query };
+    $.get("http://localhost:8888/books/api/search", param)
+    .then(function(data) {
+      // console.log(data);
+      displaySearchResult(data);
+    });
+  });
 
+  function displaySearchResult(data) {
+    $(".books-wrapper").empty();
+    if (data.length == 0) {
+      $(".books-wrapper").append('<div class="col-md-12">Sorry. We currently don\'t have any books in this categories</div>');
+    } else {
+      data.forEach(function(book) {
+        if (book.summary.length > 400) {
+          book.summary = book.summary.substring(0, 400) + "...";
+        }
+        var content = '<div class="col-md-3 book-container">';
+        content += `<a href="books/${book._id}">`;
+        content += `<div class="book-thumbnail"><img class= "img-fluid" src="${book.thumbnail}" alt=""></div></a>`;
+
+        content += `<div class="book-info"> <h4 class="book-title"> <a href="books/${book._id}">${book.title}</a> </h4> <p class="book-author"> by ${book.author} </p> <div class="summary"> <p class="book-summary"> ${book.summary} </p> <a href="books/${book._id}">more details</a> </div> </div></div></div> </div>`;
+
+        $(".books-wrapper").append(content);
+      });
+    }
+  }
 });
