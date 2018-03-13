@@ -27,11 +27,13 @@ router.get("/browse_category/:genre", (req, res) => {
 
 /*========= SEARCH ============*/
 //search on index page
-router.post('/search', (req, res) => {
-	var query = req.body.query;
+router.get('/search', (req, res) => {
+	var val = req.query.search;
+	console.log(val);
+
 	Book.find({
 		$text: {
-			$search: query,
+			$search: val,
 		}
 })
 	.then((books) => {
