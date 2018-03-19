@@ -5,6 +5,7 @@ const express 		= require("express"),
 
 //prefix "/books/api"
 
+/*========= GET ALL BOOKS ============*/
 router.get("/", (req, res) => {
 	Book.find()
 	.then((books) => {
@@ -15,6 +16,7 @@ router.get("/", (req, res) => {
 	})
 });
 
+/*========= BROWSE BY GENRE ============*/
 router.get("/browse_category/:genre", (req, res) => {
 	Book.find({ genre: req.params.genre})
 	.then((books) => {
@@ -44,5 +46,11 @@ router.get('/search', (req, res) => {
 		console.log(err);
 	})
 });
+
+/*========= COMMENTS ============*/
+// router.get('/comments' (req, res) {
+	
+// })
+
 
 module.exports = router;

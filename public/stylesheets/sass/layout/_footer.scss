@@ -1,0 +1,36 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding: 1.5rem;
+  background-color: $color-light-brown;
+  color: #fff;
+  font-size: 14px;
+
+  .col-md-6 {
+    text-align: center;
+  }
+
+  .copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.social-links {
+  list-style: none;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+
+  li {
+    display: inline-block;
+    margin-left: 1.5rem;
+  }
+
+  a {
+    color: #fff;
+    &:hover {
+      color: var(--base);
+    }
+  }
+}

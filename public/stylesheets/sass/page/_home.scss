@@ -1,0 +1,30 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  text-align: center;
+}
+
+.feature {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.steps {
+  margin: 5rem auto;
+  text-align: center;
+
+  h4 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: $color-base-dark;
+  }
+}
+
+.our-story {
+  background-color: $color-light-grey;
+  padding: 5rem;
+}

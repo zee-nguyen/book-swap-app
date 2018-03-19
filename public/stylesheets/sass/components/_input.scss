@@ -1,0 +1,27 @@
+input.search-query-input {
+  width: 100%;
+  outline: none;
+  border: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding: 7px;
+}
+
+.index-search-input-wrapper {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  label {
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+}
+
+#index-search-input {
+  flex-grow: 1;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 14px;
+  outline: none;
+}

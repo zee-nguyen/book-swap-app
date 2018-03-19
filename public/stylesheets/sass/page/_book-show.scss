@@ -1,0 +1,50 @@
+.single-book-wrapper {
+  padding-top: 4rem;
+  padding-bottom: 2.5rem;
+
+  .single-book-title {
+    color: var(--base-dark);
+  }
+}
+
+.list-group-item.active {
+  background-color: $color-accent;
+  border-color: $color-accent;
+}
+
+.delete-form {
+  margin-left: 10px;
+}
+
+.comments-wrapper {
+  padding-top: 2rem;
+}
+
+.comment-username {
+  font-weight: bold;
+  color: $color-base-dark;
+}
+
+.add-comment {
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.comment-box {
+  border-bottom: 1px dotted gray;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+.comment-box:last-of-type {
+  border-bottom: none;
+}
+
+.comment-input-text {
+  width: 100%;
+  height: 150px;
+  padding: 20px;
+  color: $color-text-secondary;
+  border-radius: 10px;
+  outline: none;
+}

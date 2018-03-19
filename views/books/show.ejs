@@ -28,9 +28,11 @@
 			<p>Please <a href="/login">log in</a> to comment on this book</p>
 		<% } else {%>
 			<div class="add-comment">
-				<a class="btn btn-info" href="/books/<%=book._id%>/comments/new">Add a comment</a>
+				<a class="btn btn-info btn-comment" href="/books/
+				<%=book._id%>/comments/new">Add a comment</a>
 			</div>
 		<% } %>
+		<!-- <div class="comment-input"></div> -->
 		<% book.comments.forEach(function(comment) { %>
 			<div class="row comment-box">
 				<div class="col-md-12">

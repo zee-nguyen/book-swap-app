@@ -1,0 +1,49 @@
+.books-wrapper {
+  margin-bottom: 7rem;
+}
+
+.book-container {
+  border-right: 1px dotted gray;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-bottom: 3rem;
+
+  .book-thumbnail {
+    width: 140px;
+    height: 200px;
+    margin-bottom: 2rem;
+  }
+
+  .book-title {
+    font-size: 18px;
+
+    a {
+      color: $color-accent;
+    }
+  }
+
+  .book-author span {
+    font-style: italic;
+  }
+  
+  .summary {
+    .book-summary {
+      font-size: 14px;
+    }
+
+    a {
+      text-decoration: underline;
+      font-size: 15px;
+      display: block;
+      font-weight: 500;
+    }
+  }
+}
+
+.browse-wrapper {
+  background-color: $color-light-brown;
+  padding: 10px;
+  .col-md-6:first-of-type {
+    border-right: 1px dotted #fff;
+  }
+}

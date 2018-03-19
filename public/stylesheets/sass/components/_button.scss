@@ -1,0 +1,77 @@
+.btn-primary {
+  background-color: $color-accent;
+  border: none;
+
+  &:hover {
+    background-color: $color-accent;
+  }
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border-color: $color-text-secondary;
+  color: $color-text-secondary;
+
+  :hover {
+    border-color: $color-text;
+    color: $color-text;
+    background-color: transparent;
+  }
+}
+
+.btn-info {
+  background-color: $color-accent;
+  border-color: $color-accent;
+}
+
+.btn-search {
+  background-color: transparent;
+  border: 1px solid #a8a8a8;
+  border-radius: 4px;
+  margin-right: 5px;
+  padding: 10px 15px;
+  transition: all .2s ease-in-out;
+
+  :hover {
+    border: 1px solid $color-text;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+  }
+}
+
+.btn-link-inline {
+  border: none;
+  font-weight: 500;
+  color: $color-text;
+  border-bottom: 1px dotted gray;
+  cursor: pointer;
+
+  :hover {
+    border-bottom: 1px dotted $color-accent;
+    text-decoration: none;
+    color: $color-accent;
+  }
+}
+
+.btn {
+
+  &.btn-browse {
+    width: 100%;
+    background-color: $color-dark-brown;
+    color: #fff;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  &.btn-search-query {
+    background-color: $color-dark-brown;
+    color: #fff;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    &:hover {
+      background-color: #8c7563;
+    }
+  }
+}

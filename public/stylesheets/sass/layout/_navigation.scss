@@ -1,0 +1,36 @@
+.navbar {
+  padding: 10px;
+
+  a.navbar-brand {
+    color: $color-text;
+    font-size: 2rem;
+    margin-left: 2rem;
+    font-weight: bold;
+  }
+
+  .navbar-toggler {
+    border: 1px solid rgba(0, 0, 0, .5);
+
+    .nav-toggle-icon {
+      color: rgba(0, 0, 0, .5);
+    }
+  }
+
+  .navbar-nav {
+    margin-right: 2rem;
+    
+    .nav-item {
+      margin-left: 2rem;
+      
+      a.nav-link {
+        color: $color-text;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.navbar-main {
+  background-color: $color-base;
+}
+

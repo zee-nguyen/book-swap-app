@@ -65,4 +65,11 @@ $(document).ready(function() {
       });
     }
   }
+
+
+  // // COMMENT AJAX
+  // $(".btn-comment").click(function() {
+  //   //display comment box
+  //   $(".comment-input").append("<textarea class=\"comment-input-text\">Comment...</textarea>")
+  // });
 });

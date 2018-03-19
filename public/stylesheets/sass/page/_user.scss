@@ -1,0 +1,49 @@
+.profile-wrapper {
+  padding: 5rem 5rem 0 5rem;
+}
+
+.user-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.avatar {
+  height: 150px;
+  width: 150px;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+}
+
+h3.user-username {
+  font-size: 42px;
+  font-weight: 700;
+  margin-right: 2rem;
+}
+
+.user-books {
+  padding-top: 3rem;
+}
+
+.user-books-info {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+
+  a {
+    padding: 0 12px;
+
+    &:first-of-type {
+      padding-left: 0;
+    }
+  }
+}

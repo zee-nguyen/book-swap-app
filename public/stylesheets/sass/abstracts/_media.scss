@@ -1,0 +1,16 @@
+/* ========== MEDIA QUERIES ========== */
+
+@media screen and (max-width: 768px) {
+  .dropdown {
+    margin-top: 1rem;
+  }
+  .step {
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .search {
+    width: 90%;
+  }
+}
