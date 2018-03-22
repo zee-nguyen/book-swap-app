@@ -22,7 +22,7 @@ $(document).ready(function() {
   //Browse Result
   $('.dropdown-item').on('click', function() {
     var genre = $(this)[0].innerText.toLowerCase();
-    var url = `http://localhost:8888/books/api/browse_category/${genre}`;
+    var url = `/books/api/browse_category/${genre}`;
     $.getJSON(url)
     .then(function(data) {
       // console.log(data)
@@ -39,7 +39,7 @@ $(document).ready(function() {
     e.preventDefault();
     var query = $("#search-query").val().toLowerCase();
     var param = { search: query };
-    $.get("http://localhost:8888/books/api/search", param)
+    $.get("/books/api/search", param)
     .then(function(data) {
       // console.log(data);
       displaySearchResult(data);
