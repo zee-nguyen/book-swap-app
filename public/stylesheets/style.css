@@ -1,14 +1,3 @@
-/* ========== MEDIA QUERIES ========== */
-@media screen and (max-width: 768px) {
-  .dropdown {
-    margin-top: 1rem; }
-  .step {
-    margin-bottom: 2rem; } }
-
-@media screen and (max-width: 992px) {
-  .search {
-    width: 90%; } }
-
 html {
   position: relative;
   min-height: 100vh; }
@@ -88,6 +77,9 @@ div.container-fluid.flash-message {
 .alert {
   margin-bottom: 0; }
 
+form.cmxform label.error, label.error {
+  color: #eb4242; }
+
 .jumbotron {
   background-color: #F6F6F6; }
 
@@ -123,6 +115,68 @@ input.search-query-input {
 
 .dropdown-menu {
   width: 100%; }
+
+.browse-wrapper {
+  background-color: #61594F;
+  padding: 10px; }
+  .browse-wrapper .col-md-6:first-of-type {
+    border-right: 1px dotted #fff; }
+
+.img-form {
+  height: 85vh;
+  overflow: hidden; }
+  .img-form .col-md-6 {
+    padding: 0; }
+
+.form-wrapper {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 10%; }
+
+.user-form-wrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.form {
+  flex: 1 0 auto; }
+
+.index-search-form {
+  display: flex;
+  border: 1px solid #a8a8a8;
+  border-radius: 4px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center; }
+
+.search {
+  width: 65%; }
+
+.fa-search {
+  font-size: 1.3rem;
+  margin-right: 10px; }
+
+.search-button-wrapper {
+  flex-shrink: 0; }
+
+.search-form {
+  display: flex;
+  justify-content: space-between; }
+
+.delete-form {
+  margin-left: 10px; }
+
+/* ========== MEDIA QUERIES ========== */
+@media screen and (max-width: 768px) {
+  .dropdown {
+    margin-top: 1rem; }
+  .step {
+    margin-bottom: 2rem; } }
+
+@media screen and (max-width: 992px) {
+  .search {
+    width: 90%; } }
 
 .navbar {
   padding: 10px; }
@@ -172,48 +226,6 @@ input.search-query-input {
     .social-links a:hover {
       color: var(--base); }
 
-.img-form {
-  height: 100vh;
-  overflow: hidden; }
-  .img-form .col-md-6 {
-    padding: 0; }
-
-.form-wrapper {
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-top: 10%; }
-
-.user-form-wrapper {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; }
-
-.form {
-  flex: 1 0 auto; }
-
-.index-search-form {
-  display: flex;
-  border: 1px solid #a8a8a8;
-  border-radius: 4px;
-  padding: 5px;
-  justify-content: center;
-  align-items: center; }
-
-.search {
-  width: 65%; }
-
-.fa-search {
-  font-size: 1.3rem;
-  margin-right: 10px; }
-
-.search-button-wrapper {
-  flex-shrink: 0; }
-
-.search-form {
-  display: flex;
-  justify-content: space-between; }
-
 .books-wrapper {
   margin-bottom: 7rem; }
 
@@ -222,6 +234,8 @@ input.search-query-input {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   margin-bottom: 3rem; }
+  .book-container:nth-child(4n), .book-container:last-child {
+    border-right: 0; }
   .book-container .book-thumbnail {
     width: 140px;
     height: 200px;
@@ -240,31 +254,19 @@ input.search-query-input {
     display: block;
     font-weight: 500; }
 
-.browse-wrapper {
-  background-color: #61594F;
-  padding: 10px; }
-  .browse-wrapper .col-md-6:first-of-type {
-    border-right: 1px dotted #fff; }
-
 .single-book-wrapper {
   padding-top: 4rem;
   padding-bottom: 2.5rem; }
-  .single-book-wrapper .single-book-title {
-    color: var(--base-dark); }
-
-.list-group-item.active {
-  background-color: #189F98;
-  border-color: #189F98; }
-
-.delete-form {
-  margin-left: 10px; }
+  .single-book-wrapper .book-content {
+    padding: 3rem 0; }
+    .single-book-wrapper .book-content .single-book-title {
+      color: var(--base-dark); }
 
 .comments-wrapper {
   padding-top: 2rem; }
-
-.comment-username {
-  font-weight: bold;
-  color: #d37b00; }
+  .comments-wrapper .comment-username {
+    font-weight: bold;
+    color: #d37b00; }
 
 .add-comment {
   margin-bottom: 2rem;
@@ -274,17 +276,8 @@ input.search-query-input {
   border-bottom: 1px dotted gray;
   padding-bottom: 2rem;
   padding-top: 2rem; }
-
-.comment-box:last-of-type {
-  border-bottom: none; }
-
-.comment-input-text {
-  width: 100%;
-  height: 150px;
-  padding: 20px;
-  color: #7c7c7c;
-  border-radius: 10px;
-  outline: none; }
+  .comment-box:last-of-type {
+    border-bottom: none; }
 
 .profile-wrapper {
   padding: 5rem 5rem 0 5rem; }

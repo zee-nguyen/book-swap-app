@@ -18,56 +18,22 @@ router.get('/register', (req, res) => {
 });
 
 //Handle user sign up
-router.post('/register', (req, res) => {
-  req.checkBody("fullname")
-    .notEmpty()
-    .withMessage("Full name can't be empty");
-// TODO: check validation bug
-	req
-    .checkBody("username", "Username can only include letters and numbers")
-    .isAlpha()
-    .custom(value => {
-      User.findByUsername(req.body.username)
-        .then(user => {
-          throw new Error("This username is already in use");
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    });
-
-  req
-    .checkBody("password")
-    .isLength({ min: 6 })
-    .withMessage("Password must be at least 6 characters");
-
-	var errors = req.validationErrors();
-	if (errors) {
-		req.session.errors = errors;
-		req.session.success = false;
-	} else {
-		req.session.success = true;
-
-		var newUser = new User({
-      username: req.body.username,
-      fullname: req.body.fullname,
-      avatar:
-        "https://c1.staticflickr.com/5/4743/38784575450_a095a729a8.jpg",
-      desc: "Just a bookworm in this vast universe."
-    });
-
-		User.register(newUser, req.body.password, (err, user) => {
-			if (err) {
-				req.flash("error", err);
-				console.log(err);
-			}
-			passport.authenticate("local")(req, res, () => {
-				req.flash("success", "Welcome abroad! You're all signed up!");
-				res.redirect("/books");
-			});
-		});
-	}
-	res.redirect('/register');
+router.post('/register', function(req, res) {
+	var newUser = new User({
+    username: req.body.username,
+    fullname: req.body.fullname,
+    avatar: "https://c1.staticflickr.com/5/4743/38784575450_a095a729a8.jpg",
+    desc: "Just a bookworm in this vast universe."
+  });
+	User.register(newUser, req.body.password, function(err, user) {
+		if (err) {
+			console.log(err);
+		}
+		passport.authenticate("local")(req, res, function() {
+			req.flash("success", "Welcome aboard! You're all signed up.")
+			res.redirect('/books');
+		})
+	})
 });
 
 

@@ -1,44 +1,56 @@
+<!-- jQuery validator -->
+<script src="/vendors/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/js/form-validation.js"></script>
+<!-- Custom JS -->
+<script type="text/javascript" src="/js/main.js">
+</script>
+</body>
+
+</html>
+
+
 <% include ./partials/header %>
 
-<div class="container form-wrapper user-form-wrapper">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="form">
-				<h3 class="text-center">Create an Account</h3>
-				<form action="/register" method="post">
-					<div class="form-group">
-						<label for="fullname">
-							Full Name
-						</label>
-						<input class="form-control" type="text" name="fullname" id="fullname">
-					</div><!--fullname-->
+	<div class="container form-wrapper user-form-wrapper">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="form">
+					<h3 class="text-center">Create an Account</h3>
+					<form action="/register" method="post" name="registration" class="cmxform" id="signupForm">
+						<div class="form-group">
+							<label for="fullname">
+								Full Name
+							</label>
+							<input class="form-control" type="text" name="fullname" id="fullname" required>
+						</div>
+						<!--fullname-->
 
 						<label for="username">
 							Username
 							<span class="text-secondary">(only letters, numbers, and underscores)</span>
 						</label>
-						<input class="form-control" type="text" name="username" id="username">
-					</div><!--username-->
+						<input class="form-control" type="text" name="username" id="username" required>
+				</div>
+				<!--username-->
 
-					<div class="form-group">
-						<label for="password">
-							Password
-							<span class="text-secondary">(min. 6 characters)</span>
-						</label>
-						<input class="form-control" type="password" name="password" id="password">
-					</div><!--password-->
+				<div class="form-group">
+					<label for="password">
+						Password
+						<span class="text-secondary">(min. 6 characters)</span>
+					</label>
+					<input class="form-control" type="password" name="password" id="password" required>
+				</div>
+				<!--password-->
 
-					<div class="form-group">
-	          <button class="btn btn-large btn-primary btn-block">Sign Up</button>
-	        </div>
+				<div class="form-group">
+					<button class="btn btn-large btn-primary btn-block">Sign Up</button>
+				</div>
 				</form>
+			</div>
 		</div>
-	</div><!-- row -->
-</div><!-- container -->
-
-
-		<!-- Custom JS -->
-		<script type="text/javascript" src="/js/main.js">
-		</script>
+		<!-- row -->
+	</div>
+	<!-- container -->
 	</body>
-</html>
+
+	</html>

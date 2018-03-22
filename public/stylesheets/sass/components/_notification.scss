@@ -6,3 +6,7 @@ div.container-fluid.flash-message {
 .alert {
   margin-bottom: 0;
 }
+
+form.cmxform label.error, label.error {
+  color: $color-red;
+}

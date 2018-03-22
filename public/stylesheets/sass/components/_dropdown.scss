@@ -1,3 +1,11 @@
 .dropdown-menu {
   width: 100%;
 }
+
+.browse-wrapper {
+  background-color: $color-light-brown;
+  padding: 10px;
+  .col-md-6:first-of-type {
+    border-right: 1px dotted #fff;
+  }
+}

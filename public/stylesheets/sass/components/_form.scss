@@ -1,5 +1,5 @@
 .img-form {
-  height: 100vh;
+  height: 85vh;
   overflow: hidden;
 
   .col-md-6 {
@@ -42,14 +42,15 @@
   margin-right: 10px;
 }
 
-
 .search-button-wrapper {
   flex-shrink: 0;
 }
 
-
-
 .search-form {
   display: flex;
   justify-content: space-between;
+}
+
+.delete-form {
+  margin-left: 10px;
 }

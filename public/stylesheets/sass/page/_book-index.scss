@@ -1,5 +1,6 @@
 .books-wrapper {
   margin-bottom: 7rem;
+
 }
 
 .book-container {
@@ -7,6 +8,10 @@
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   margin-bottom: 3rem;
+
+  &:nth-child(4n), &:last-child {
+    border-right: 0;
+  }
 
   .book-thumbnail {
     width: 140px;
@@ -40,10 +45,3 @@
   }
 }
 
-.browse-wrapper {
-  background-color: $color-light-brown;
-  padding: 10px;
-  .col-md-6:first-of-type {
-    border-right: 1px dotted #fff;
-  }
-}
