@@ -1,5 +1,6 @@
 const express 													= require("express"),
 		app 																= express(),
+		http 																= require('http').Server(app);
 		mongoose 														= require("mongoose"),
 		passport 														= require("passport"),
 		LocalStrategy 											= require("passport-local"),
@@ -73,4 +74,6 @@ app.use("/books", bookRoutes);
 app.use("/books/:id/comments", commentRoutes);
 app.use("/books/api", apiRoutes);
 
-app.listen('8888', () => console.log('magic seriously is happening on port 8888'));
+http.listen(process.env.PORT || 8888, function() {
+  console.log("listening on", http.address().port);
+});
