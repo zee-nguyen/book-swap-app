@@ -13,8 +13,7 @@ const express 													= require("express"),
 		validator 													= require("express-validator"),
 		Book 																= require("./models/book"),
 		User 																= require("./models/user"),
-		Comment 														= require("./models/comment"),
-		seedDB 															= require("./seeds");
+		Comment 														= require("./models/comment");
 
 
 //Require routes
