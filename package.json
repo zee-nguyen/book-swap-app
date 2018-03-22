@@ -4,6 +4,7 @@
   "description": "Book Swap App",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "compile:sass": "node-sass public/stylesheets/sass/main.scss public/stylesheets/style.css -w"
   },
   "author": "Zi Nguyen",
