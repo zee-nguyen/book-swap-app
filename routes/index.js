@@ -30,7 +30,7 @@ router.post('/register', function(req, res) {
 			console.log(err);
 		}
 		passport.authenticate("local")(req, res, function() {
-			req.flash("success", "Welcome aboard! You're all signed up.")
+			req.flash("success", "Welcome aboard! You're all signed up.");
 			res.redirect('/books');
 		})
 	})
